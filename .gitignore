@@ -1,0 +1,13 @@
+# GCP 서비스 계정 키 (절대 유출 금지)
+*.json
+
+# 테라폼 관련 파일 (로컬 설정 및 상태 파일)
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
+
+# OS 및 기타 설정 파일
+.DS_Store
+Thumbs.db
+.vscode/
