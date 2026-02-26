@@ -1,5 +1,6 @@
 # GCP 서비스 계정 키 (절대 유출 금지)
 *.json
+gcp_ssh_key
 
 # 테라폼 관련 파일 (로컬 설정 및 상태 파일)
 .terraform/
