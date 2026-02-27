@@ -12,3 +12,6 @@ gcp_ssh_key
 .DS_Store
 Thumbs.db
 .vscode/
+
+# Ansible 관련 파일
+ansible/inventory/group_vars/all.yml
