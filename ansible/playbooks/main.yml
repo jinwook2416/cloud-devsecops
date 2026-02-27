@@ -1,0 +1,12 @@
+---
+- name: Setup Infrastructure
+  hosts: web_server
+  become: yes
+
+  tasks:
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Install Docker
+      ansible.builtin.include_tasks: tasks/docker_setup.yml
