@@ -22,3 +22,8 @@ resource "google_compute_instance" "cloud-devsecops" {
     }
   }
 }
+
+output "public_ip" {
+  value       = google_compute_instance.cloud-devsecops.network_interface[0].access_config[0].nat_ip
+  description = "External IP"
+}
