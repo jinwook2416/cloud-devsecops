@@ -10,3 +10,6 @@
 
     - name: Install Docker
       ansible.builtin.include_tasks: tasks/docker_setup.yml
+
+    - name: Setup Nginx Web Server
+      ansible.builtin.include_tasks: tasks/nginx_setup.yml
