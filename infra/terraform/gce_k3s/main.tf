@@ -1,13 +1,13 @@
 provider "google" {
-  project     = "cloud-devsecops-488512" # 실제 ID로 수정
-  region      = "asia-northeast3"
-  credentials = file("../../../secrets/secret.json") 
+  project     = var.project_id
+  region      = var.region
+  credentials = file(var.credentials_file)
 }
 
 resource "google_compute_instance" "cloud-devsecops" {
-  name         = "cloud-devsecops"
+  name         = var.instance_name
   machine_type = "e2-micro"
-  zone         = "asia-northeast3-a"
+  zone         = var.zone
 
   boot_disk {
     initialize_params {
