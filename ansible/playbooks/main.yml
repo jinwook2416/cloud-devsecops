@@ -13,3 +13,6 @@
 
     - name: Setup Nginx Web Server
       ansible.builtin.include_tasks: tasks/nginx_setup.yml
+
+    - name: Setup Certbot for SSL
+      ansible.builtin.include_tasks: tasks/certbot_setup.yml
