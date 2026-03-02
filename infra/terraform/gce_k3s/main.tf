@@ -9,7 +9,7 @@ resource "google_compute_instance" "cloud-devsecops" {
   machine_type = "e2-micro"
   zone         = var.zone
 
-  tags = ["http-server"]
+  tags = ["http-server", "https-server"]
 
   boot_disk {
     initialize_params {
@@ -18,28 +18,42 @@ resource "google_compute_instance" "cloud-devsecops" {
   }
 
   network_interface {
-    network = "default" 
+    network = "default"
     access_config {
-    
+
     }
   }
 }
 
-resource "google_compute_firewall" "allow-http"{
-  name = "allow-http-traffic"
+resource "google_compute_firewall" "allow-http" {
+  name    = "allow-http-traffic"
   network = "default"
 
-  allow{
+  allow {
     protocol = "tcp"
-    ports = ["80"]
+    ports    = ["80"]
   }
 
   target_tags = ["http-server"]
 
   source_ranges = ["0.0.0.0/0"]
-  }
+}
 
 output "public_ip" {
   value       = google_compute_instance.cloud-devsecops.network_interface[0].access_config[0].nat_ip
   description = "External IP"
+}
+
+resource "google_compute_firewall" "allow-https" {
+  name    = "allow-https-traffic"
+  network = "default"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["443"]
+  }
+
+  target_tags = ["https-server"]
+
+  source_ranges = ["0.0.0.0/0"]
 }
