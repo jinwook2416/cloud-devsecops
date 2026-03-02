@@ -1,24 +1,24 @@
 variable "project_id" {
-    description = "GCP Project_id"
-    type = string
+  description = "GCP Project_id"
+  type        = string
 }
 
 variable "region" {
-    description = "GCP Region"
-    type = string
+  description = "GCP Region"
+  type        = string
 }
 
-variable "credentials_file" { 
-    description = "Service Account Key Path"
-    type = string
+variable "credentials_file" {
+  description = "Service Account Key Path"
+  type        = string
 }
 
 variable "instance_name" {
-    description = "Instance Name"
-    type = string
+  description = "Instance Name"
+  type        = string
 }
 
 variable "zone" {
-    description = "GCP Zone"
-    type = string
+  description = "GCP Zone"
+  type        = string
 }
